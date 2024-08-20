@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a423d88b26e5c94f9b39a4b4027bead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timer: {fileID: 458189403}
 --- !u!4 &294540074
 Transform:
   m_ObjectHideFlags: 0
@@ -312,6 +313,7 @@ GameObject:
   - component: {fileID: 458189401}
   - component: {fileID: 458189400}
   - component: {fileID: 458189399}
+  - component: {fileID: 458189403}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -403,6 +405,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &458189403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458189398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee88d86e283702498c6fff2f98ae5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeKeeper: {fileID: 294540073}
+  _buttonDetector: {fileID: 1853400988}
 --- !u!1 &637639943
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,12 +564,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 637639943}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ee88d86e283702498c6fff2f98ae5b5, type: 3}
+  m_Script: {fileID: 11500000, guid: d1c066f21be378b4d901a1573c2493df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 637639945}
-  _timeKeeper: {fileID: 294540073}
-  _buttonDetector: {fileID: 1853400988}
+  _timer: {fileID: 458189403}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
