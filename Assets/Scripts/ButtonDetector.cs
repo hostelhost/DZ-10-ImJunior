@@ -4,22 +4,19 @@ using UnityEngine.UI;
 
 public class ButtonDetector : MonoBehaviour
 {
-    [SerializeField] Button _butten;
+    [SerializeField] private Button _butten;
 
-    private bool _clickStats;
+    private bool _iSClickStats;
 
     public event Action<bool> Click;
 
-    private void OnEnable()
-    {
-        _butten.onClick.AddListener(ButtonClick);
-    }
-
+    private void OnEnable() => _butten.onClick.AddListener(ButtonClick);
+    
     private void OnDisable() => _butten.onClick.RemoveListener(ButtonClick);
 
     private void ButtonClick()
     {
-        _clickStats = !_clickStats;
-        Click?.Invoke(_clickStats);
+        _iSClickStats = !_iSClickStats;
+        Click?.Invoke(_iSClickStats);
     }
 }
