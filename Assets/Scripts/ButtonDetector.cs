@@ -6,17 +6,17 @@ public class ButtonDetector : MonoBehaviour
 {
     [SerializeField] private Button _butten;
 
-    private bool _iSClickStats;
+    private bool _isClickStats;
 
     public event Action<bool> Click;
 
-    private void OnEnable() => _butten.onClick.AddListener(ButtonClick);
+    private void OnEnable() => _butten.onClick.AddListener(OnButtonClick);
     
-    private void OnDisable() => _butten.onClick.RemoveListener(ButtonClick);
+    private void OnDisable() => _butten.onClick.RemoveListener(OnButtonClick);
 
-    private void ButtonClick()
+    private void OnButtonClick()
     {
-        _iSClickStats = !_iSClickStats;
-        Click?.Invoke(_iSClickStats);
+        _isClickStats = !_isClickStats;
+        Click?.Invoke(_isClickStats);
     }
 }

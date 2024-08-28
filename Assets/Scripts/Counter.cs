@@ -2,43 +2,39 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Timer : MonoBehaviour
+public class Counter : MonoBehaviour
 {
     [SerializeField] private ButtonDetector _buttonDetector;
-
-    public event Action<float> GotNumber;
 
     private Coroutine _coroutine;
     private float _delay = 0.5f;
     private float _number = 0f;
 
+    public event Action<float> ValueChanged;
+
     private void OnEnable() => _buttonDetector.Click += OnClick;
 
     private void OnDisable() => _buttonDetector.Click -= OnClick;
 
-    private void OnClick(bool state)
+    private void OnClick(bool isClickStats)
     {
-        if (state)
-            _coroutine = StartCoroutine(StartReporting(_delay, _number));
+        if (isClickStats)
+            _coroutine = StartCoroutine(StartIncreasingNumber(_delay, _number));
         else
-            StopCoroutine(_coroutine);
+            if (_coroutine != null)
+              StopCoroutine(_coroutine);
     }
 
-    private IEnumerator StartReporting(float delay, float number)
+    private IEnumerator StartIncreasingNumber(float delay, float number)
     {
         WaitForSecondsRealtime wait = new WaitForSecondsRealtime(delay);
 
         while (true)
         {
             number++;
-            GotNumber?.Invoke(number);
-            GetNumber(number);
+            ValueChanged?.Invoke(number);
+            _number = number;
             yield return wait;
         }
-    }
-
-    private void GetNumber(float number)
-    {
-        _number = number;
     }
 }
