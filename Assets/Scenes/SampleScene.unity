@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 637639945}
-  _timer: {fileID: 458189403}
+  "_\u0441ounter": {fileID: 458189403}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
